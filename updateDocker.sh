@@ -5,7 +5,7 @@ git pull
 # docker hub username
 USERNAME=badnarrators
 # image name
-IMAGE=BadUtils
+IMAGE=badutils
 # program version
 version=`cat VERSION`
 echo "username: $USERNAME"
