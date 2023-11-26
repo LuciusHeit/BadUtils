@@ -1,0 +1,41 @@
+html {
+    background: linear-gradient(#060306, #211523);
+    background-color: #121212;
+    color: #f3f3f3;
+    min-height: 100%;
+    min-width: 100%;
+    font-family: monospace;
+    font-size: large;
+}
+
+.purple{
+    color: #9643a4;
+}
+.title{
+    text-align: center;
+    font-style: italic;
+    font-weight: bolder;
+}
+
+.button-styled{
+    padding:0.35em 1.2em;
+    border:0.1em solid #f3f3f3;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    color:#f3f3f3;
+    font-weight: bold;
+    text-align:center;
+    transition: all 0.2s;
+    background-color: #120712;
+}
+.button-styled:hover{
+    color:#741287;
+    background-color:#f3f3f3;
+}
+@media all and (max-width:30em){
+    .button-styled{
+        display:block;
+        margin:0.4em auto;
+    }
+}
