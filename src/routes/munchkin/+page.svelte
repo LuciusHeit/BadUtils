@@ -4,6 +4,15 @@
     let results = [0, 0, 0, 0, 0, 0]
     let htmlOutput = "";
 
+    const RollColors = [
+        "#F1E9DA",
+        "#EECDCC",
+        "#EBB0BE",
+        "#D90368",
+        "#970B78",
+        "#a413d8"
+    ]
+
     function extrapolateResult(){
         
         rawInput = "";
@@ -26,12 +35,11 @@
         }else{
             for(let i = 0; i <= 18; i++){
                 results[Math.ceil((i+1)/3)-1] += inputArray[i];
-                htmlOutput = htmlOutput + inputArray[i] + ", ";
+                htmlOutput += "<span style='color:"+RollColors[inputArray[i]-1]+"; font-weight: bold;'>"+ inputArray[i] +"</span>, ";
             }
             htmlOutput = htmlOutput.substring(0, htmlOutput.length-2);
             htmlOutput = "<div class='result'>"+htmlOutput+"<br><br>Risultati prendendo i massimali: <br><br>"+results[0]+"<br>"+results[1]+"<br>"+results[2]+"<br>"+results[3]+"<br>"+results[4]+"<br>"+results[5]+"</div>"
         }
-
         document.getElementById("result").innerHTML = htmlOutput;
     }
 </script>
@@ -49,7 +57,7 @@
     <div>
         <label for="rawInput">Risultato dei dadi: </label>
         <input id="rawInput" type="textarea" placeholder="(Risultato copiato da Avrae da parentesi a parentesi)"/>
-        <br><input type="button" class="button-styled" value="Premere per calcolare" on:click={extrapolateResult}>
+        <br><br><input type="button" class="button-styled" value="Premere per calcolare" on:click={extrapolateResult}>
     </div>
 
     <div>
@@ -67,5 +75,8 @@
     .button-styled{
         margin-top: 20px;
         margin: auto;
+    }
+    h2{
+        padding-top: 20px;
     }
 </style>

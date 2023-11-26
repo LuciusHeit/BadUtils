@@ -6,7 +6,7 @@
 <div class="wrapper">
     <img src={logo} alt="BadNarrators Logo" width=200 height=200>
     <h1 class="title purple font2">BadUtils</h1>
-    <p>A set of utilities made by <a class="purple" href="https://github.com/Bad-Narrators">BadNarrators</a></p>
+    <p>A set of utilities made with love by <a class="purple" href="https://github.com/Bad-Narrators">BadNarrators</a>.</p>
 
 </div>
 
