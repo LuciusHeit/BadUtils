@@ -41,7 +41,7 @@
         if(inputArray.length != 24){
             htmlOutput = "Errore nell'input"
         }else{
-            for(let i = 0; i <= 18; i++){
+            for(let i = 0; i < 18; i++){
                 results[Math.ceil((i+1)/3)-1] += inputArray[i];
                 htmlOutput += "<span style='color:"+RollColors[inputArray[i]-1]+"; font-weight: bold;'>"+ inputArray[i] +"</span>, ";
             }
@@ -57,7 +57,7 @@
 </div>
 
 <div>
-    Questo è un semplice sistema per estrapolare i risultati da un tiro per le statistiche di D&D col metodo Munchkin (24d8).
+    Questo è un semplice sistema per estrapolare i risultati da un tiro per le statistiche di D&D col metodo Munchkin (24d6).
     <br>Basta inserire il risultato dei tiri nella casella testuale, e verrano mostrati i 18 risultati migliori in ordine, insieme a un calcolo rapido delle statistiche prendendo in sequenza i migliori 3 risultati.
 </div>
 
