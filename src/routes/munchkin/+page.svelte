@@ -1,4 +1,6 @@
 <script>
+	import Rolling from "./rolling.svelte";
+
         
     let rawInput = "";
     let results = [0, 0, 0, 0, 0, 0]
@@ -19,13 +21,19 @@
         results = [0, 0, 0, 0, 0, 0]
         htmlOutput = "";
 
+        let inputArray;
+
         rawInput = document.getElementById("rawInput").value;
 
-        let inputArray = rawInput.substring(
-            rawInput.indexOf("(") + 1, 
-            rawInput.lastIndexOf(")")
-        ).replaceAll("*","").replaceAll(" ","").split(',').map( Number );
-        
+        if(rawInput.indexOf("(") != -1 && rawInput.indexOf(")") != -1){
+            inputArray = rawInput.substring(
+                rawInput.indexOf("(") + 1, 
+                rawInput.lastIndexOf(")")
+            ).replaceAll("*","").replaceAll(" ","").split(',').map( Number );
+        }
+        else{
+            inputArray = rawInput.replaceAll("(", "").replaceAll(")", "").replaceAll("*","").replaceAll(" ","").split(',').map( Number );
+        }
         inputArray.sort(function(a, b) {
             return b - a;
         });
@@ -53,10 +61,12 @@
     <br>Basta inserire il risultato dei tiri nella casella testuale, e verrano mostrati i 18 risultati migliori in ordine, insieme a un calcolo rapido delle statistiche prendendo in sequenza i migliori 3 risultati.
 </div>
 
+<Rolling></Rolling>
+
 <div class="calculator">
     <div>
         <label for="rawInput">Risultato dei dadi: </label>
-        <input id="rawInput" type="textarea" placeholder="(Risultato copiato da Avrae da parentesi a parentesi)"/>
+        <input id="rawInput" type="textarea" placeholder="(Inserire il risultato)"/>
         <br><br><input type="button" class="button-styled" value="Premere per calcolare" on:click={extrapolateResult}>
     </div>
 
@@ -66,6 +76,7 @@
         <p id="result"></p>
     </div>
 </div>
+
 
 <style>
     .calculator{

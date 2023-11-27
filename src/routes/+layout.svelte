@@ -1,6 +1,8 @@
 <script>
     import '../style/global.css'
     import logo from '$lib/assets/logo.svg'
+	import SlotAnim from './slotAnim.svelte';
+    import { page } from '$app/stores';  
 </script>
 
 
@@ -13,7 +15,11 @@
 
 
 <div class='content'>
-    <slot />
+    {#key $page}
+    <SlotAnim timeout={100}>
+        <slot></slot>
+    </SlotAnim>
+    {/key}
 </div>
 
 
