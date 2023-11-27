@@ -9,6 +9,10 @@
         }
     }
 
+    let size = 3;
+    if (window.innerWidth < 960) {
+        size = 1;
+    }
 
     let results = [];
     let show = false;
@@ -73,7 +77,7 @@
 {#if show}
 <div class="rolls" transition:animate>
     {#each results as r}
-        <ScrollingNumber bind:start={r.old} bind:result={r.new} size={2} useColors=true></ScrollingNumber>
+        <ScrollingNumber bind:start={r.old} bind:result={r.new} size={size} useColors=true></ScrollingNumber>
     {/each}
 </div>
 {/if}
